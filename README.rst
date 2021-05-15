@@ -1,15 +1,14 @@
-flask-lambda-support
+flask-lambda2
 ====================
 
-Write Flask applications that support being run in in AWS Lambda behind API Gateway.
+One file Flask Lambda wrapper. 
 
 This project was forked from:
 https://github.com/techjacker/flask-lambda
 
 Improvements:
 
-* Expose original input event from AWS on Flask's request object
-* Production-grade logging
+* support API gateway payload format version 2 (https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html)
 
 
 Requirements
@@ -22,8 +21,7 @@ Requirements
 Installation
 ------------
 
-``pip install flask-lambda-support``
-
+just copy `flask_lambda.py` to you prject
 
 Usage
 -----
@@ -62,15 +60,3 @@ You can access the original input event and context on the Flask request context
 
     assert request.aws_event['input']['httpMethod'] == 'POST'
     assert request.aws_context.get_remaining_time_in_millis() == 10_000
-
-Development
------------
-
-You can publish a new version to PyPI with the following commands:
-
-.. code-block:: bash
-
-    python3 setup.py sdist bdist_wheel
-    twine upload PATH_TO_WHL_FILE
-
-[Refer to the official documentation on Python packaging for more information](https://packaging.python.org/tutorials/packaging-projects)
