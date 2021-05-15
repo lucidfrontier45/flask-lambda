@@ -21,7 +21,7 @@ Requirements
 Installation
 ------------
 
-just copy `flask_lambda.py` to you prject
+just copy `flask_lambda.py` to you project
 
 Usage
 -----
